@@ -1,0 +1,101 @@
+[
+{
+    "name": "Дарья",
+    "birthdate": "1989-06-05",
+    "sex": false,
+    "personalID": 1001,
+    "motherID": 1002,
+    "fatherID": 1003,
+    "spouseID": 1004
+},
+{
+    "name": "Мария",
+    "birthdate": "1965-12-10",
+    "sex": false,
+    "personalID": 1002,
+    "motherID": 1008,
+    "fatherID": 1009,
+    "spouseID": 1003
+},
+{
+    "name": "Александр",
+    "birthdate": "1964-07-30",
+    "sex": true,
+    "personalID": 1003,
+    "motherID": 0,
+    "fatherID": 0,
+    "spouseID": 1002
+},
+{
+    "name": "Михаил",
+    "birthdate": "1988-07-30",
+    "sex": true,
+    "personalID": 1004,
+    "motherID": 0,
+    "fatherID": 0,
+    "spouseID": 1001
+},
+{
+    "name": "Макар",
+    "birthdate": "1992-06-05",
+    "sex": true,
+    "personalID": 1005,
+    "motherID": 1002,
+    "fatherID": 1003,
+    "spouseID": 0
+},
+{
+    "name": "Борис",
+    "birthdate": "1990-06-05",
+    "sex": true,
+    "personalID": 1006,
+    "motherID": 0,
+    "fatherID": 1007,
+    "spouseID": 0
+},
+{
+    "name": "Антон",
+    "birthdate": "1963-06-05",
+    "sex": true,
+    "personalID": 1007,
+    "motherID": 1008,
+    "fatherID": 1009,
+    "spouseID": 0
+},
+{
+    "name": "Анастасия",
+    "birthdate": "1945-12-10",
+    "sex": false,
+    "personalID": 1008,
+    "motherID": 0,
+    "fatherID": 0,
+    "spouseID": 1009
+},
+{
+    "name": "Дмитрий",
+    "birthdate": "1944-07-30",
+    "sex": true,
+    "personalID": 1009,
+    "motherID": 0,
+    "fatherID": 0,
+    "spouseID": 1008
+},
+{
+    "name": "Денис",
+    "birthdate": "2020-05-07",
+    "sex": true,
+    "personalID": 1010,
+    "motherID": 1001,
+    "fatherID": 1004,
+    "spouseID": 0
+},
+{
+    "name": "Нина",
+    "birthdate": "2016-08-02",
+    "sex": false,
+    "personalID": 1011,
+    "motherID": 1001,
+    "fatherID": 1004,
+    "spouseID": 0
+}
+]

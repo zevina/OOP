@@ -293,7 +293,7 @@ public class Program {
             Human hum = findHuman(tree, id);
 
             return "Мать: " + findHuman(tree, hum.getMotherID()).getName() +
-                    "Отец: " + findHuman(tree, hum.getFatherID()).getName();
+                    "\nОтец: " + findHuman(tree, hum.getFatherID()).getName();
 
         } catch (Exception e) {
             System.out.println("Введены неверные данные");

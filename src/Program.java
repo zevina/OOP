@@ -198,7 +198,7 @@ public class Program {
     }
 
     public static void writeInJSONFile(List<Human> tree){
-        try(FileWriter writer = new FileWriter("tree.json", false))
+        try(FileWriter writer = new FileWriter("src/tree.json", false))
         {
             StringBuilder json = new StringBuilder();
             List<String> resultList = new ArrayList<>();
@@ -323,11 +323,13 @@ public class Program {
             List<Human> siblings = new ArrayList<>();
 
             for (Human h: tree) {
-                if (hum.isSibling(h)) {
+                if (hum.isSibling(h) && id != h.getPersonalID()) {
                     siblings.add(h);
                 }
             }
-            return "Родные братья/сестры: " + siblings;
+            if (siblings.size() != 0) {
+                return "Родные братья/сестры: " + siblings;
+            } else return "Нет братьев/сестер";
         }
         catch (Exception e) {
             System.out.println("Введены неверные данные");

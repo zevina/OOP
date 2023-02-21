@@ -45,7 +45,6 @@ public class Main {
 //        h9.addCommunication(h10, TypeCommunication.FATHER);
 //        h3.addCommunication(h9, TypeCommunication.SON);
 //        h10.addCommunication(h9, TypeCommunication.SON);
-//
 //        tree.addHuman(h1);
 //        tree.addHuman(h2);
 //        tree.addHuman(h3);
@@ -57,10 +56,8 @@ public class Main {
 //        tree.addHuman(h9);
 //        tree.addHuman(h10);
 
-
         FileHandler fileHandler = new FileHandler();
         Tree tree = fileHandler.readFile("tree.out");
-
         List<Option> commandList = new ArrayList<>();
         commandList.add(new PrintAll(tree));
         commandList.add(new AddHuman(tree));
@@ -70,34 +67,19 @@ public class Main {
         commandList.add(new ShowSiblings(tree));
         commandList.add(new ShowGrandparents(tree));
         commandList.add(new ShowRelatives(tree));
-
         System.out.println("Выберите нужный пункт:");
         for (int i = 0; i < commandList.size(); i++) {
-            System.out.println(i+1 + ": " + commandList.get(i).description());
+            System.out.println(i + 1 + ": " + commandList.get(i).description());
         }
         Scanner scanner = new Scanner(System.in);
         try {
             int choose = scanner.nextInt();
-            if (choose > 0 && choose < commandList.size()+1){
-                commandList.get(choose-1).execute();
-            }
-            else System.out.println("Некорректный ввод!");
-        }
-        catch (Exception e) {
+            if (choose > 0 && choose < commandList.size() + 1) {
+                commandList.get(choose - 1).execute();
+            } else System.out.println("Некорректный ввод!");
+        } catch (Exception e) {
             System.out.println("Некорректный ввод!");
         }
-
-
-
-//
-//        System.out.println("Родители:");
-//        h3.showParents();
-//        h3.showSiblings();
-//
-//        h2.showKids();
-
-
         fileHandler.writeFile("tree.out", tree);
     }
-
 }

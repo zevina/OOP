@@ -87,7 +87,6 @@ public class Human implements Serializable, Comparable<Human> {
         return communicationList;
     }
 
-
     // методы для добавления родственных связей
     public void addCommunication(Human human, TypeCommunication typeCommunication) {
         communicationList.add(new Communication(human, typeCommunication));
@@ -105,7 +104,6 @@ public class Human implements Serializable, Comparable<Human> {
     public void addKid(Human human) {
         kids.add(human);
     }
-
 
     // методы для отображения родственных связей
     public void showKids() {
@@ -152,7 +150,6 @@ public class Human implements Serializable, Comparable<Human> {
     }
 
     public void showSpouse() {
-
     }
 
     @Override
@@ -171,7 +168,5 @@ public class Human implements Serializable, Comparable<Human> {
             return 1;
         } else return 0;
     }
-
-
 }
 

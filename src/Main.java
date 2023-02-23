@@ -67,6 +67,8 @@ public class Main {
         commandList.add(new ShowSiblings(tree));
         commandList.add(new ShowGrandparents(tree));
         commandList.add(new ShowRelatives(tree));
+        commandList.add(new RemoveHuman(tree));
+
         System.out.println("Выберите нужный пункт:");
         for (int i = 0; i < commandList.size(); i++) {
             System.out.println(i + 1 + ": " + commandList.get(i).description());
@@ -80,6 +82,7 @@ public class Main {
         } catch (Exception e) {
             System.out.println("Некорректный ввод!");
         }
+
         fileHandler.writeFile("tree.out", tree);
     }
 }

@@ -2,6 +2,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.atomic.AtomicLong;
 
 public class Human implements Serializable, Comparable<Human> {
@@ -83,8 +84,16 @@ public class Human implements Serializable, Comparable<Human> {
         return kids;
     }
 
+    public void setKids(List<Human> kids) {
+        this.kids = kids;
+    }
+
     public List<Communication> getCommunicationList() {
         return communicationList;
+    }
+
+    public void setCommunicationList(List<Communication> communicationList) {
+        this.communicationList = communicationList;
     }
 
     // методы для добавления родственных связей
@@ -167,6 +176,22 @@ public class Human implements Serializable, Comparable<Human> {
         } else if (date.isAfter(o.getDate())) {
             return 1;
         } else return 0;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Human human = (Human) o;
+        return personalID == human.personalID
+                && name.equals(human.name)
+                && date.equals(human.date)
+                && sex.equals(human.sex);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(personalID);
     }
 }
 

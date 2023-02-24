@@ -7,14 +7,20 @@ public class PrintAll implements Option {
     }
 
     @Override
-    public String description(){
+    public String description() {
         return "Показать всё дерево";
     }
 
     @Override
     public void execute() {
         tree.sort();
-        tree.printAll();
+        Form allTree = new Form("Показать всё дерево", tree.printWindow());
+        allTree.setVisible(true);
+    }
+
+    @Override
+    public void run(int id) {
+
     }
 
 

@@ -1,6 +1,7 @@
+import java.util.List;
 import java.util.Scanner;
 
-public class ShowKids implements Option{
+public class ShowKids implements Option {
 
     private Tree tree;
 
@@ -9,22 +10,41 @@ public class ShowKids implements Option{
     }
 
     @Override
-    public String description(){
+    public String description() {
         return "Показать детей выбранного человека";
     }
 
     @Override
     public void execute() {
-        Scanner input = new Scanner(System.in);
+        Form idRequest = new Form(tree);
+        idRequest.setVisible(true);
+    }
 
+    @Override
+    public void run(int id) {
+
+        String res = "";
         try {
-            System.out.println("Введите ID человека:");
-            int id = input.nextInt();
-            tree.findHuman(id).showKids();
+            Human human = tree.findHuman(id);
+            List<Human> kids = human.getKids();
+            if (kids.size() != 0) {
+                StringBuilder kidsToString = new StringBuilder();
+                kidsToString.append("<html>");
+                kidsToString.append("Дети:");
+                kidsToString.append("<br>");
+                for (Human kid: kids) {
+                    kidsToString.append(kid.toWindow(kid.toString()));
+                }
 
-        } catch (Exception e){
-            System.out.println("Введены неверные данные");
+                kidsToString.append("</html>");
+                res = kidsToString.toString();
+            } else res = ("Нет данных о детях");
+
+        } catch (Exception exc) {
+            res = "Введены неверные данные";
         }
+        Form showKids = new Form("Показать детей выбранного человека", res);
+        showKids.setVisible(true);
     }
 
 }

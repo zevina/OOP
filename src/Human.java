@@ -169,6 +169,11 @@ public class Human implements Serializable, Comparable<Human> {
                 ", пол: " + sex;
     }
 
+    public String toWindow(String human) {
+        String res = human+"<br>";
+        return res;
+    }
+
     @Override
     public int compareTo(Human o) {
         if (date.isBefore(o.getDate())) {

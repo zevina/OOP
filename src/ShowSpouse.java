@@ -16,28 +16,47 @@ public class ShowSpouse implements Option {
 
     @Override
     public void execute() {
-        Scanner input = new Scanner(System.in);
+        Form idRequest = new Form(tree);
+        idRequest.setVisible(true);
+    }
 
+    @Override
+    public void run(int id) {
+        String res = "";
         try {
-            System.out.println("Введите ID человека:");
-            int id = input.nextInt();
-            List<Communication> relations = tree.findHuman(id).getCommunicationList();
-            boolean hasSpouse = false;
+            Human human = tree.findHuman(id);
+            List<Communication> relations = human.getCommunicationList();
 
-            for (Communication c : relations) {
-                if (c.getTypeCommunication() == TypeCommunication.HUSBAND || c.getTypeCommunication() == TypeCommunication.WIFE) {
-                    hasSpouse = true;
-                    if (c.getTypeCommunication().equals(TypeCommunication.HUSBAND)) {
-                        System.out.println(c.getHuman() + "  - Муж");
-                    } else System.out.println(c.getHuman() + "  - Жена");
+            if (relations.size() > 0) {
+                StringBuilder spouseToString = new StringBuilder();
+                spouseToString.append("<html>");
+
+                boolean hasSpouse = false;
+
+                for (Communication c : relations) {
+                    if (c.getTypeCommunication() == TypeCommunication.HUSBAND || c.getTypeCommunication() == TypeCommunication.WIFE) {
+                        hasSpouse = true;
+                        if (c.getTypeCommunication().equals(TypeCommunication.HUSBAND)) {
+                            spouseToString.append("Муж: ");
+                            spouseToString.append(c.getHuman().toWindow(c.getHuman().toString()));
+                        } else {
+                            spouseToString.append("Жена: ");
+                            spouseToString.append(c.getHuman().toWindow(c.getHuman().toString()));
+                        }
+                        spouseToString.append("</html>");
+                        res = spouseToString.toString();
+                    }
                 }
-            }
-            if (!hasSpouse) {
-                System.out.println("Нет данных о супруге");
-            }
+                if (!hasSpouse) {
+                    res = "Нет супруга";
+                }
 
-        } catch (Exception e) {
-            System.out.println("Введены неверные данные");
+            } else res = ("Нет данных о супруге");
+
+        } catch (Exception exc) {
+            res = "Введены неверные данные";
         }
+        Form showSpouse = new Form("Показать супруга выбранного человека", res);
+        showSpouse.setVisible(true);
     }
 }

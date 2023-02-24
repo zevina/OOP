@@ -1,6 +1,7 @@
+import java.util.List;
 import java.util.Scanner;
 
-public class ShowGrandparents implements Option{
+public class ShowGrandparents implements Option {
 
     private Tree tree;
 
@@ -15,26 +16,55 @@ public class ShowGrandparents implements Option{
 
     @Override
     public void execute() {
-        Scanner input = new Scanner(System.in);
+        Form idRequest = new Form(tree);
+        idRequest.setVisible(true);
+    }
 
+    @Override
+    public void run(int id) {
+        String res = "";
         try {
-            System.out.println("Введите ID человека:");
-            int id = input.nextInt();
+            Human human = tree.findHuman(id);
+            StringBuilder grandToString = new StringBuilder();
+            grandToString.append("<html>");
+            grandToString.append("Бабушки/дедушки:");
+            grandToString.append("<br>");
+            grandToString.append("<br>");
 
-            System.out.println("Бабушки/дедушки:");
-            System.out.println("- со стороны отца:");
-            tree.findHuman(id).getFather().showParents();
-            System.out.println("- со стороны матери:");
-            tree.findHuman(id).getMother().showParents();
 
-        } catch (Exception e){
-            System.out.println("Введены неверные данные");
+            grandToString.append("- со стороны отца:");
+            grandToString.append("<br>");
+
+            Human father = human.getFather();
+            if (father.getFather() != null) {
+                grandToString.append("Отец:");
+                grandToString.append(father.toWindow(father.getFather().toString()));
+            }
+            if (father.getMother() != null) {
+                grandToString.append("Мать:");
+                grandToString.append(father.toWindow(father.getMother().toString()));
+                grandToString.append("<br>");
+            }
+
+            grandToString.append("- со стороны матери:");
+            grandToString.append("<br>");
+            Human mother = human.getMother();
+            if (mother.getFather() != null) {
+                grandToString.append("Отец:");
+                grandToString.append(mother.toWindow(mother.getFather().toString()));
+            }
+            if (mother.getMother() != null) {
+                grandToString.append("Мать:");
+                grandToString.append(mother.toWindow(mother.getMother().toString()));
+            }
+
+            grandToString.append("</html>");
+            res = grandToString.toString();
+
+        } catch (Exception exc) {
+            res = "Введены неверные данные";
         }
-//
-//
-//
-
-//        System.out.println();
-
+        Form showGrandparents = new Form("Показать бабушек/дедушек выбранного человека", res);
+        showGrandparents.setVisible(true);
     }
 }

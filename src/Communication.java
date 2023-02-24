@@ -25,4 +25,9 @@ public class Communication implements Serializable {
     public String toString() {
         return human + ", родственная связь: " + typeCommunication;
     }
+
+    public String toWindow(String communication) {
+        String res = communication+"<br>";
+        return res;
+    }
 }

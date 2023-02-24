@@ -33,6 +33,17 @@ public class Tree implements Iterable<Human>, Serializable {
         System.out.println();
     }
 
+    public String printWindow() {
+        StringBuilder treeToString = new StringBuilder();
+        treeToString.append("<html>");
+        for (Human h : tree) {
+            treeToString.append(h.toWindow(h.toString()));
+        }
+        treeToString.append("</html>");
+        String res = treeToString.toString();
+        return res;
+    }
+
     public void sort() {
         Collections.sort(tree);
     }

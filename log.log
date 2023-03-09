@@ -1,12 +1,8 @@
-мар. 03, 2023 11:25:17 PM gui.CalculatorGui$4 actionPerformed
+мар. 09, 2023 3:44:08 PM gui.MainGUI$1 actionPerformed
 INFO: 
-9,000000 / 3,000000 = 3.0 
+Выбран режим работы с рациональными числами
 
-мар. 03, 2023 11:25:28 PM gui.CalculatorGui$4 actionPerformed
+мар. 09, 2023 3:44:11 PM gui.MainGUI$2 actionPerformed
 INFO: 
-5,000000 x 2,000000 = 10.0 
-
-мар. 03, 2023 11:25:33 PM gui.CalculatorGui$4 actionPerformed
-INFO: 
-7,000000 - 4,000000 = 3.0 
+Выбран режим работы с комплексными числами
 

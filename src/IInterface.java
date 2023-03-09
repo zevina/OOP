@@ -1,0 +1,3 @@
+interface IInterface {
+    void print();
+}
